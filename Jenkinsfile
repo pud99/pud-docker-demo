@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('DOCKER_ACCESS_TOKEN')
+    DOCKERHUB_CREDENTIALS = credentials('docker_global_access')
     }
     stages { 
 
