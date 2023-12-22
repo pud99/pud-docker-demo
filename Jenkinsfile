@@ -1,13 +1,13 @@
 pipeline {
     agent any 
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('amonkincloud-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('DOCKER_ACCESS_TOKEN')
     }
     stages { 
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t ylmt/flaskapp:$BUILD_NUMBER .'
+                sh 'docker build -t pudpanw/cloudmonk_lab:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push ylmt/flaskapp:$BUILD_NUMBER'
+                sh 'docker push pudpanw/cloudmonk_lab:$BUILD_NUMBER'
             }
         }
 }
