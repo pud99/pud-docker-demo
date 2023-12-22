@@ -7,7 +7,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t pudpanw/cloudmonk_lab:$BUILD_NUMBER .'
+                sh 'docker build -t pudpanw/pud-monk_in_cloud-flask_lab:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push pudpanw/cloudmonk_lab:$BUILD_NUMBER'
+                sh 'docker push pudpanw/pud-monk_in_cloud-flask_lab:$BUILD_NUMBER'
             }
         }
 }
